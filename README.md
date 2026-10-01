@@ -6,7 +6,7 @@ OpsFlow is a Python-based project focused on automating repetitive digital tasks
 
 The toolkit is being developed in separate modules, each designed to address a specific task.
 
-Modules
+MODULES:
 
 Part 1 — File Organizer
 
@@ -20,10 +20,10 @@ Future Modules
 
 Additional automation modules will be added as development progresses.
 
-Project Structure
+PROJECT STRUCTURE:
 
 Each module has its own folder containing its implementation and documentation.
 
-Development Status
+DEVELOPMENT STATUS:
 
 OpsFlow is a work in progress. The project will expand as new automation tools are developed and tested.
