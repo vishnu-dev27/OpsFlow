@@ -1,4 +1,5 @@
-OpsFlow — Python Automation Toolkit
+#OpsFlow
+opsFlow — Python Automation Toolkit
 
 OpsFlow is a Python-based automation project developed to solve repetitive digital tasks through practical, modular solutions.
 
