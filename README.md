@@ -2,7 +2,7 @@ OpsFlow — Python Automation Toolkit
 
 OpsFlow is a Python-based automation project developed to solve repetitive digital tasks through practical, modular solutions.
 
-Built as part of VCC's automation capabilities, OpsFlow demonstrates how Python can streamline workflows, reduce manual effort, and handle routine file and data operations.
+Built as part of automation capabilities, OpsFlow demonstrates how Python can streamline workflows, reduce manual effort, and handle routine file and data operations.
 
 Project Modules
 
