@@ -1,0 +1,11 @@
+# Generated output - recreate it by running the program
+output*/
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/

@@ -1,0 +1,6 @@
+order_id,customer_name,amount,order_date
+1001,alice johnson,250.00,2026-01-05
+1002,Bob Smith,19.99,2026-01-06
+1003,  carol   white ,1200,2026-01-07
+1004,Dev Patel,5.5,2026-01-08
+1005,Eve Martin,75.25,2026-01-09

@@ -1,0 +1,5 @@
+order_id,customer_name,amount,order_date
+4001,Mia Nord,100.00,2026-04-01
+4002,Noah Owen,55.00
+4003,Omar Pratt,20.00,2026-04-03,EXTRA
+4004,Pia Quinn,35.00,2026-04-04

@@ -1,0 +1,11 @@
+order_id,customer_name,amount,order_date
+2001,Asha Rao,150.00,2026-02-01
+2002,Ben Carter,abc,2026-02-02
+2003,,45.50,2026-02-03
+2004,Chloe Diaz,-20,2026-02-04
+2005,Dan Evans,99.999,2026-02-05
+2006,Fay Green,300.00,2026-13-45
+2001,Gus Hall,60.00,2026-02-07
+2008,Hana Ito,0,2026-02-08
+2009,Ivan Jones,80.00,2026-02-09
+2010,Jia Kim,12.50,2026-02-10
