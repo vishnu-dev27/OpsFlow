@@ -74,3 +74,33 @@ Automated data collection must respect the target website's terms, access polici
 Role Within OpsFlow
 
 Catalog Scraper is Part 2 of OpsFlow, following Part 1 — File Organizer. Each module is developed independently around a specific automation problem, keeping the overall toolkit modular and maintainable.
+
+
+Part 3 — CSV Automation
+
+CSV Automation is a productized data-processing service within OpsFlow, designed to reduce manual effort in cleaning and validating business data.
+
+Business Problem
+
+CSV files often contain inconsistent values, duplicate identifiers, missing fields, and invalid records that require time-consuming manual review.
+
+Automation Solution
+
+This module validates and cleans order data, separates accepted and rejected records, and generates structured reports for review.
+
+Capabilities
+
+- CSV structure and required-field validation
+- Duplicate ID, amount, date, and row validation
+- Data cleaning and monetary formatting
+- Preservation of additional columns
+- Cleaned CSV output and error reports
+- Automated testing with pytest
+
+Technologies: Python, CSV, argparse, pytest
+
+Status: Initial version completed and tested.
+
+Role Within OpsFlow
+
+Part 3 of OpsFlow, following File Organizer and Catalog Scraper. The module demonstrates a practical automation service that can be customized to meet business data-processing needs.
