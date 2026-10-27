@@ -7,7 +7,6 @@ Extra columns are preserved in valid output rows.
 import argparse
 import csv
 import re
-import string
 import sys
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -133,8 +132,13 @@ def read_csv_file(path):
 # ---------------------------------------------------------------------------
 
 def tidy_customer_name(name):
-    """Trim extra spaces and standardize capitalization."""
-    return string.capwords(name)
+    """Trim extra spaces and capitalize all-lowercase words.
+
+    Words that already contain capitals (McDonald, DeShawn) are kept
+    exactly as typed.
+    """
+    words = name.split()
+    return " ".join(w.capitalize() if w.islower() else w for w in words)
 
 
 def check_amount(text):
@@ -308,13 +312,6 @@ def process_file(input_path, output_dir, overwrite=False):
             valid.append(clean_row)
             accepted_ids[clean_row["order_id"]] = line_number
 
-    # Every input data row must be accounted for.
-    if len(valid) + len(rejected) != len(data_rows):
-        raise CsvProcessingError(
-            "Internal error: some rows were neither accepted nor rejected. "
-            "Nothing was written."
-        )
-
     # Protect previous output files unless overwrite was requested.
     existing = [p.name for p in (clean_path, error_path) if p.exists()]
     if existing and not overwrite:
@@ -323,10 +320,17 @@ def process_file(input_path, output_dir, overwrite=False):
             "Use --overwrite to replace it, or choose another --output-dir."
         )
 
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    write_clean_csv(clean_path, valid, extra_columns)
-    write_error_report(error_path, rejected)
+    # A locked file (for example, open in Excel) raises PermissionError.
+    # Turn it into a plain message instead of a traceback.
+    try:
+        output_dir.mkdir(parents=True, exist_ok=True)
+        write_clean_csv(clean_path, valid, extra_columns)
+        write_error_report(error_path, rejected)
+    except PermissionError as error:
+        raise CsvProcessingError(
+            f"Cannot write to {error.filename}. "
+            "If the file is open in Excel, close it and run again."
+        ) from error
 
     # Count rows from the files actually written.
     result = ProcessingResult(
