@@ -17,13 +17,13 @@ HEADER = "order_id,customer_name,amount,order_date\n"
 def write_input(folder, body, header=HEADER):
     """Helper: create an input CSV inside the test's temporary folder."""
     path = folder / "input.csv"
-    path.write_text(header + body, encoding="utf-8")
+    path.write_text(header + body, encoding="utf-8-sig")
     return path
 
 
 def read_rows(path):
     """Helper: read a CSV back as a list of dictionaries."""
-    with open(path, newline="", encoding="utf-8") as handle:
+    with open(path, newline="", encoding="utf-8-sig") as handle:
         return list(csv.DictReader(handle))
 
 

@@ -242,7 +242,7 @@ def write_clean_csv(path, rows, extra_columns):
     """Write valid rows, retaining any additional input columns."""
     fieldnames = REQUIRED_COLUMNS + extra_columns
 
-    with open(path, "w", newline="", encoding="utf-8") as handle:
+    with open(path, "w", newline="", encoding="utf-8-sig") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
@@ -250,7 +250,7 @@ def write_clean_csv(path, rows, extra_columns):
 
 def write_error_report(path, rejected):
     """Write rejected rows with their line numbers and validation reasons."""
-    with open(path, "w", newline="", encoding="utf-8") as handle:
+    with open(path, "w", newline="", encoding="utf-8-sig") as handle:
         writer = csv.writer(handle)
         writer.writerow(ERROR_REPORT_COLUMNS)
 
@@ -264,7 +264,7 @@ def write_error_report(path, rejected):
 
 def count_data_rows(path):
     """Count data rows in a generated CSV, excluding its header."""
-    with open(path, newline="", encoding="utf-8") as handle:
+    with open(path, newline="", encoding="utf-8-sig") as handle:
         return max(sum(1 for _ in csv.reader(handle)) - 1, 0)
 
 
